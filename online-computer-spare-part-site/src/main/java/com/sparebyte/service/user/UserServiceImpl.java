@@ -1,3 +1,12 @@
+/**
+ * OOP project year 2 semester 1, 2023
+ * 
+ * @author Malshan Rathnayake Software Engineering Undergraduate, SLIIT 
+ * 
+ * @version 1.0
+ * Copyright: Malshan, All rights reserved
+ * 
+ */
 package com.sparebyte.service.user;
 
 import java.sql.Statement;
@@ -20,7 +29,12 @@ import com.sparebyte.util.DBConnectionUtil;
 import com.sparebyte.util.commonUtil;
 import com.sparebyte.util.queryUtil;
 
-
+/**
+ * Contract for the implementation of User Service.
+ * 
+ * @author Malshan Rathnayake, SLIIT Undergraduate
+ * @version 1.0
+ */
 public class UserServiceImpl implements IUserService{
 	
 	public static final Logger log = Logger.getLogger(UserServiceImpl.class.getName());

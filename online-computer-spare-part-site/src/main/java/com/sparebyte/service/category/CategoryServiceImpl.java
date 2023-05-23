@@ -11,7 +11,7 @@
 package com.sparebyte.service.category;
 
 /**
- * Contract for the implementation of Product Service.
+ * Contract for the implementation of Category Service.
  * 
  * @author Malshan Rathnayake, SLIIT Undergraduate
  * @version 1.0

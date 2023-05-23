@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 import com.sparebyte.models.Category;
 
 /**
- * Contract for the implementation of Cart Service.
+ * Contract for the implementation of Category Service.
  * 
  * @author Malshan Rathnayake, SLIIT Undergraduate
  * @version 1.0

@@ -1,5 +1,21 @@
+/**
+ * OOP project year 2 semester 1, 2023
+ * 
+ * @author Malshan Rathnayake Software Engineering Undergraduate, SLIIT 
+ * 
+ * @version 1.0
+ * Copyright: Malshan, All rights reserved
+ * 
+ */
+
 package com.sparebyte.service.category;
 
+/**
+ * Contract for the implementation of Product Service.
+ * 
+ * @author Malshan Rathnayake, SLIIT Undergraduate
+ * @version 1.0
+ */
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<queries>
+
+	///user queries
+
+	<query id="create_user_tables">
+	
+		<![CDATA[ 
+			CREATE TABLE user(
+				userId varchar(10) not null,
+				userName varchar(20),
+				email varchar(20),
+				password varchar(10),
+				mobileNo varchar(10),
+				primary key (userId)
+			)
+		]]>
+		
+	</query>
+	
+	<query id="drop_table">
+	
+		<![CDATA[        
+			DROP TABLE IF EXISTS user 
+		]]>
+		
+	</query>
+	
+	<query id="insert_user">
+		<![CDATA[
+			INSERT INTO user(userID,userName,email,password,mobileNo,userRole)
+			values(?,?,?,?,?,?)
+		]]>
+	</query>
+	
+	<query id="user_by_id">
+		<![CDATA[
+			SELECT * FROM user as s WHERE s.userName = ?
+		]]>
+	</query>
+	
+	<query id="user_ids">
+        <![CDATA[        
+            select u.userId from user as u
+        ]]>
+	</query>
+	
+	<query id="all_users">
+		<![CDATA[
+			SELECT * FROM user
+		]]>
+	</query>
+	
+	<query id="update_user">
+		<![CDATA[
+			UPDATE user as u 
+			SET u.userName = ?, u.email = ?, u.password = ?, u.mobileNo = ?
+			WHERE u.userId = ?
+		]]>
+	</query>
+	
+	<query id="update_user_role">
+		<![CDATA[
+			UPDATE user SET userRole = ? WHERE userId = ?
+		]]>
+	</query>
+	
+	///product queries
+	
+	<query id = "create_product_table">
+		<![CDATA[
+			CREATE TABLE product(
+				productID varchar(10),
+				productName varchar(100),
+				productDesc varchar(200),
+				productCat varchar(50),
+				productBrand varchar(20),
+				productModel varchar(20),
+				productPrice varchar(10),
+				productStock varchar(50),
+				image varchar(100),
+				PRIMARY KEY (productID)
+			)
+		]]>
+	</query>
+	
+	<query id="drop_product_table">
+		<![CDATA[
+			DROP TABLE IF EXISTS product
+		]]>
+	</query>
+	
+	<query id="insert_product">
+		<![CDATA[
+			INSERT INTO product(productID,productName,productDesc,productCat,productBrand,productModel,productPrice,productStock,image)
+			VALUES (?,?,?,?,?,?,?,?,?)
+		]]>
+	</query>
+	
+	<query id="product_by_id">
+		<![CDATA[
+			SELECT * FROM product as p WHERE p.productID = ?
+		]]>
+	</query>
+	
+	<query id="all_products">
+		<![CDATA[
+			SELECT p.productID,p.productName,p.productDesc,p.productCat,p.productBrand,p.productModel,p.productPrice,p.productStock,p.image 
+			FROM product p
+		]]>
+	</query>
+	
+	<query id="product_ids">
+        <![CDATA[        
+            select p.productID from product as p
+        ]]>
+	</query>
+	
+	<query id="delete_product">
+		<![CDATA[
+			DELETE FROM product WHERE product.productID = ?
+		]]>
+	</query>
+	
+	<query id="update_product">
+		<![CDATA[
+			UPDATE product as p 
+			SET p.productName = ?, p.productDesc = ?, p.productCat = ?, p.productBrand = ?, p.productModel = ?, p.productPrice = ?, p.productStock = ?
+			WHERE p.productID = ?
+		]]>
+	</query>
+	
+	
+	///category queries
+	
+	<query id="create_category_table">
+		<![CDATA[
+			CREATE TABLE category(
+				catID varchar(50),
+				catName varchar(50),
+				catDesc varchar(200),
+				catCreatedDate DATE,
+				catUpdatedDate DATE, 
+				PRIMARY KEY (catID)
+			)
+		]]>
+	</query>
+	
+	<query id="drop_category_table">
+		<![CDATA[
+			DROP TABLE IF EXISTS category;
+		]]>
+	</query>
+	
+	<query id="insert_category">
+		<![CDATA[
+			INSERT INTO category(catID,catName,catDesc,catCreatedDate,catUpdatedDate)
+			VALUES (?,?,?,?,?)
+		]]>
+	</query>
+	
+	<query id="category_by_id">
+		<![CDATA[
+			SELECT * FROM category as c WHERE c.catID = ?
+		]]>
+	</query>
+	
+	<query id="all_categories">
+		<![CDATA[
+			SELECT * FROM category
+		]]>
+	</query>
+	
+	<query id="category_ids">
+		<![CDATA[
+			SELECT catID from category
+		]]>
+	</query>
+	
+	<query id="delete_category">
+		<![CDATA[
+			DELETE FROM category WHERE catID = ?
+		]]>
+	</query>
+	
+	<query id="update_category">
+		<![CDATA[
+			UPDATE category as c
+			SET c.catName = ?, c.catDesc = ?, c.catUpdatedDate = ?
+			WHERE c.catID = ?
+		]]>
+	</query>
+	
+	///brand queries
+	
+	<query id="create_brand_table">
+		<![CDATA[
+			CREATE TABLE brand(
+				brandID varchar(30),
+				brandName varchar(50),
+				brandOrigin varchar(50),
+				brandProductFocus varchar(50),
+				brandProductPortfolio varchar(50),
+				PRIMARY KEY (brandID)
+			)
+		]]>
+	</query>
+	
+	<query id="drop_brand_table">
+		<![CDATA[
+			DROP TABLE IF EXISTS brand;
+		]]>
+	</query>
+	
+	<query id="insert_brand">
+		<![CDATA[
+			INSERT INTO brand (brandID,brandName,brandOrigin,brandProductFocus,brandProductPortfolio)
+			VALUES (?,?,?,?,?)
+		]]>
+	</query>
+	
+	<query id="brand_by_id">
+		<![CDATA[
+			SELECT * FROM brand WHERE brandID = ?
+		]]>
+	</query>
+	
+	<query id="all_brands">
+		<![CDATA[
+			SELECT * FROM brand
+		]]>
+	</query>
+	
+	<query id="brand_ids">
+		<![CDATA[
+			SELECT brandID FROM brand
+		]]>
+	</query>
+	
+	<query id="delete_brand">
+		<![CDATA[
+			DELETE FROM brand WHERE brandID = ?
+		]]>
+	</query>
+	
+	<query id="update_brand">
+		<![CDATA[
+			UPDATE brand as b
+			SET b.brandName = ?, b.brandOrigin = ?, b.brandProductFocus = ?, b.brandProductPortfolio = ?
+			WHERE brandID = ? 
+		]]>
+	</query>
+	
+	///cart queries
+	
+	<query id="create_cart_table">
+		<![CDATA[
+			CREATE TABLE cart(
+				cartID varchar(50),
+				userID varchar(50),
+				productName varchar(50),
+				amount varchar(50),
+				PRIMARY KEY (cartID)
+			)
+		]]>
+	</query>
+	
+	<query id="drop_cart_table">
+		<![CDATA[
+			DROP TABLE IF EXISTS cart;
+		]]>
+	</query>
+	
+	<query id="insert_cart">
+		<![CDATA[
+			INSERT INTO cart (cartID,userID,productName,amount)
+			VALUES (?,?,?,?)
+		]]>
+	</query>
+	
+	<query id="cart_ids">
+		<![CDATA[
+			SELECT cartID FROM cart
+		]]>
+	</query>
+	
+	<query id="cart_by_id">
+		<![CDATA[
+			SELECT * FROM cart WHERE cartID = ?
+		]]>
+	</query>
+	
+	<query id="all_cart">
+		<![CDATA[
+			SELECT * FROM cart WHERE userID = ?
+		]]>
+	</query>
+	
+	<query id="delete_cart">
+		<![CDATA[
+			DELETE FROM cart WHERE cartID = ?
+		]]>
+	</query>
+	
+	<query id="clear_cart">
+		<![CDATA[
+			DELETE FROM cart WHERE userID = ?
+		]]>
+	</query>
+	
+	///order queries
+	
+	<query id="create_Order_table">
+		<![CDATA[
+			CREATE TABLE orders(
+				userID varchar(30),
+				product varchar(30),
+				amount int
+			)
+		]]>
+	</query>
+	
+	<query id="drop_order_table">
+		<![CDATA[
+			DROP TABLE IF EXISTS orders
+		]]>
+	</query>
+	
+	<query id="insert_order">
+		<![CDATA[
+			INSERT INTO orders (userID, product, amount) VALUES (?,?,?)
+		]]>
+	</query>
+	
+	<query id="all_order">
+		<![CDATA[
+			SELECT userID, SUM(amount) FROM orders GROUP BY userID
+		]]>
+	</query>
+	
+	<query id="delete_order">
+		<![CDATA[
+			DELETE FROM orders WHERE userID = ?
+		]]>
+	</query>
+	
+	<query id="order_product">
+		<![CDATA[
+			SELECT product FROM orders
+		]]>
+	</query>
+	
+	
+
+</queries>
